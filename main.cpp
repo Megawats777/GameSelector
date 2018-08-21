@@ -9,7 +9,7 @@
 using namespace std;
 using namespace MainApp;
 
-const int gameListSize = 6;
+const int gameListSize = 21;
 
 
 // Forward declare functions
@@ -24,12 +24,37 @@ void clearConsole();
 int main()
 {
 	Game* gameList = new Game[gameListSize];
+
 	setGameProperties(gameList[0], "Rainbow Six Siege", 10, 3);
 	setGameProperties(gameList[1], "CSGO", 10, 2);
+	
 	setGameProperties(gameList[2], "Vanquish", 9, 5);
-	setGameProperties(gameList[3], "Nier Automata", 8, 9);
-	setGameProperties(gameList[4], "Warframe", 8, 7);
-	setGameProperties(gameList[5], "Flower", 2, 5);
+	setGameProperties(gameList[3], "Mirror's Edge", 9, 4);
+	
+	setGameProperties(gameList[4], "Nier Automata", 8, 9);
+	setGameProperties(gameList[5], "Warframe", 8, 7);
+	
+	setGameProperties(gameList[6], "Superhot", 7, 10);
+	setGameProperties(gameList[7], "The Division", 7, 3);
+	
+	setGameProperties(gameList[8], "The Phantom Pain", 6, 9);
+	setGameProperties(gameList[9], "GRID", 6, 2);
+
+	setGameProperties(gameList[10], "Skate 2", 5, 3);
+	setGameProperties(gameList[11], "Star Wars Battlefront 2 (The real one.)", 5, 4);
+	
+	setGameProperties(gameList[12], "Gran Turismo 5", 4, 2);
+	setGameProperties(gameList[13], "Little Big Planet", 4, 7);
+
+	setGameProperties(gameList[14], "Portal", 3, 6);
+	setGameProperties(gameList[15], "Hexic", 3, 2);
+
+	setGameProperties(gameList[16], "XCOM Enemy Unknown", 2, 6);
+	setGameProperties(gameList[17], "Kerbal Space Program", 2, 5);
+	setGameProperties(gameList[18], "Flower", 2, 5);
+
+	setGameProperties(gameList[19], "Tonka Construction 2", 1, 4);
+	setGameProperties(gameList[20], "Bob the Builder: Can we fix it?", 1, 2);
 
 	User user;
 
@@ -46,6 +71,7 @@ int main()
 		selectGame(user, gameList);
 
 		cout << endl;
+		clearConsole();
 
 		showRepeatPrompt(repeat);
 		
@@ -166,6 +192,7 @@ void selectGame(User& user, Game* gameList)
 		if (gameCandidateListSize == 0)
 		{
 			cout << "No games found." << endl;
+			showContinuePrompt();
 		}
 
 		// Otherwise
@@ -200,6 +227,8 @@ void selectGame(User& user, Game* gameList)
 			checkGameWeirdness(selectedGame, user);
 			cout << endl;
 			cout << "Enjoy playing!" << endl;
+		
+			showContinuePrompt();
 		}
 
 		delete[] gameCandidates;
@@ -283,6 +312,7 @@ void showRepeatPrompt(bool& loopControlVar)
 				cout << "Restarting..." << endl;
 				loopControlVar = true;
 				showContinuePrompt();
+				cout << endl << endl;
 				clearConsole();
 			}
 
@@ -290,6 +320,9 @@ void showRepeatPrompt(bool& loopControlVar)
 			{
 				validInput = true;
 				loopControlVar = false;
+				cout << endl;
+				cout << "Thank you for your time!" << endl;
+				cout << endl;
 			}
 
 			// If a number that was not 1 or 2 was entered
