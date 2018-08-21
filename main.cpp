@@ -18,6 +18,8 @@ void selectGame(User& user, Game* gameList);
 void checkGameWeirdness(Game& game, User& user);
 void showContinuePrompt();
 void showRepeatPrompt(bool& loopControlVar);
+void clearConsole();
+
 
 int main()
 {
@@ -281,7 +283,7 @@ void showRepeatPrompt(bool& loopControlVar)
 				cout << "Restarting..." << endl;
 				loopControlVar = true;
 				showContinuePrompt();
-				system("cls");
+				clearConsole();
 			}
 
 			else if (response == 2)
@@ -300,4 +302,17 @@ void showRepeatPrompt(bool& loopControlVar)
 			}
 		}
 	}
+}
+
+// Clear console
+void clearConsole()
+{
+#ifdef _WIN32
+	system("cls");
+#endif
+
+#ifdef _UNIX_
+	system("clear");
+#endif
+
 }
