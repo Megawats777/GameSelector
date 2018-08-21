@@ -226,7 +226,8 @@ void selectGame(User& user, Game* gameList)
 			// Check game weirdness
 			checkGameWeirdness(selectedGame, user);
 			cout << endl;
-			cout << "Enjoy playing!" << endl;
+			displayEnjoymentMessage(selectedGame);
+			cout << endl;
 		
 			showContinuePrompt();
 		}

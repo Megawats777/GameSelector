@@ -4,7 +4,10 @@
 #define NAMESPACE_GAME_CLASS
 
 #include <iostream>
+#include <cstdlib>
 #include <cstring>
+#include <string>
+#include <time.h>
 #include "User.h"
 
 using namespace std;
@@ -46,6 +49,7 @@ namespace MainApp
 	void setGameProperties(Game& game, char* name, int intensity, int weirdness);
 	bool doesGameMatchDesiredIntensity(Game& game, User& user);
 	void copyGameProperties(Game& destination, Game& source);
+	void displayEnjoymentMessage(Game& game);
 }
 
 

@@ -156,6 +156,10 @@ namespace MainApp
 
 	/*--Getters and Setters End--*/
 
+
+	// Helper functions
+
+
 	void setGameProperties(Game & game, char * name, int intensity, int weirdness)
 	{
 		game.setName(name);
@@ -163,7 +167,7 @@ namespace MainApp
 		game.setWeirdness(weirdness);
 	}
 
-	bool doesGameMatchDesiredIntensity(Game & game, User & user)
+	bool doesGameMatchDesiredIntensity(Game& game, User& user)
 	{
 		return game.getIntensity() == user.getDesiredIntensity();
 	}
@@ -174,4 +178,53 @@ namespace MainApp
 		destination.setIntensity(source.getIntensity());
 		destination.setWeirdness(source.getWeirdness());
 	}
+
+
+	void displayEnjoymentMessage(Game& game)
+	{
+		int gIntensity = game.getIntensity();
+		string* possibleMessages = new string[2];
+		string selectedMessage;
+
+		if (gIntensity == 10 || gIntensity == 9)
+		{
+			possibleMessages[0] = "Enjoy and don't get a heart attack!";
+			possibleMessages[1] = "You may start to sweat...";
+		}
+
+		else if (gIntensity == 8 || gIntensity == 7)
+		{
+			possibleMessages[0] = "Have a fun time!";
+			possibleMessages[1] = "Enjoy!";
+		}
+
+		else if (gIntensity == 6 || gIntensity == 5)
+		{
+			possibleMessages[0] = "Sit back and enjoy!";
+			possibleMessages[1] = "Relax and have fun!";
+		}
+
+		else if (gIntensity == 4 || gIntensity == 3)
+		{
+			possibleMessages[0] = "At least you won't get a heart attack from this game.";
+			possibleMessages[1] = "Enjoy a calm and soothing experience!";
+		}
+
+		else if (gIntensity == 2 || gIntensity == 1)
+		{
+			possibleMessages[0] = "Enjoy a REALLY calming experience!";
+			possibleMessages[1] = "Prepare for a nap...";
+		}
+
+		// Select the message to use
+		srand(time(NULL));
+		int selectionIndex = rand() % 2;
+		selectedMessage = possibleMessages[selectionIndex];
+
+		cout << selectedMessage << endl;
+
+		delete[] possibleMessages;
+		possibleMessages = nullptr;
+	}
+
 }
