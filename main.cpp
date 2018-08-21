@@ -311,7 +311,7 @@ void clearConsole()
 	system("cls");
 #endif
 
-#ifdef _UNIX_
+#ifdef linux
 	system("clear");
 #endif
 
