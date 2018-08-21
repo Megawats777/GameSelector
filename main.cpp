@@ -2,7 +2,6 @@
 
 
 #include <iostream>
-#include <cstdlib>
 #include <time.h>
 #include "Game.h"
 #include "User.h"
@@ -61,8 +60,14 @@ int main()
 	bool repeat = false;
 
 
-	cout << "Hello Game Selector!" << endl;
+	// Show the welcome screen
+	cout << "Welcome to Game Selector!" << endl;
 	cout << endl;
+	cout << "By: James Daniel Semilla" << endl;
+	cout << endl;
+
+	showContinuePrompt();
+	clearConsole();
 
 	// Application loop
 	do
@@ -106,14 +111,16 @@ void performUserInput(User& user)
 		{
 			cin.clear();
 			cin.ignore(1000, '\n');
-			cout << "Please enter a whole number." << endl;
+			cout << "ERROR: Please enter a whole number." << endl;
+			cout << endl;
 		}
 
 		else if (desiredIntensityAnswer < desiredIntensity_Min || desiredIntensityAnswer > desiredIntensity_Max)
 		{
 			cin.clear();
 			cin.ignore(1000, '\n');
-			cout << "Please enter a number between 0 and 10." << endl;
+			cout << "ERROR Please enter a number between 0 and 10." << endl;
+			cout << endl;
 		}
 
 
@@ -156,6 +163,8 @@ void performUserInput(User& user)
 		// If input is correct
 		else
 		{
+			cin.clear();
+			cin.ignore(1000, '\n');
 			validInput = true;
 			user.setExperimentalLvl(desiredExperimentalLvl);
 		}
@@ -226,6 +235,7 @@ void selectGame(User& user, Game* gameList)
 			// Check game weirdness
 			checkGameWeirdness(selectedGame, user);
 			cout << endl;
+		
 			displayEnjoymentMessage(selectedGame);
 			cout << endl;
 		
@@ -257,7 +267,6 @@ void checkGameWeirdness(Game& game, User& user)
 		// is greater than 2
 		if (weirdnessDifference > 2)
 		{
-			// Print a statement
 			cout << "This game's weirdness might be too much for you." << endl;
 		}
 
@@ -265,7 +274,6 @@ void checkGameWeirdness(Game& game, User& user)
 		// Otherwise
 		else
 		{
-			// Print a different statement
 			cout << "This game might be a little too weird for you." << endl;
 		}
 	}
@@ -274,7 +282,6 @@ void checkGameWeirdness(Game& game, User& user)
 // Show continue prompt
 void showContinuePrompt()
 {
-	cin.ignore();
 	cout << "Press enter to continue: ";
 	cin.ignore();
 }
@@ -309,6 +316,9 @@ void showRepeatPrompt(bool& loopControlVar)
 		{
 			if (response == 1)
 			{
+				cin.clear();
+				cin.ignore(1000, '\n');
+
 				validInput = true;
 				cout << "Restarting..." << endl;
 				loopControlVar = true;
@@ -319,6 +329,9 @@ void showRepeatPrompt(bool& loopControlVar)
 
 			else if (response == 2)
 			{
+				cin.clear();
+				cin.ignore(1000, '\n');
+
 				validInput = true;
 				loopControlVar = false;
 				cout << endl;
