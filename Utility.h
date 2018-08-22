@@ -3,6 +3,9 @@
 #ifndef NAMESPACE_UTILITY
 #define NAMESPACE_UTILITY
 
+#include <iostream>
+#include <string>
+
 #ifdef _WIN32
 #include <Windows.h>
 
@@ -12,14 +15,18 @@
 #endif
 
 
+using namespace std;
 
-namespace Utility
+
+
+
+namespace Util
 {
 	// Perform a delay
-	void delay(unsigned seconds);
+	void delay(float seconds);
 
-
-
+	// Indent text
+	string indentText(int size);
 }
 
 

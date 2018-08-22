@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <time.h>
+#include <string>
 #include "Game.h"
 #include "User.h"
 #include "Utility.h"
@@ -63,11 +64,11 @@ int main()
 	bool repeat = false;
 
 
+
 	// Show the welcome screen
 	showWelcomeScreen();
 
-	showContinuePrompt();
-	clearConsole();
+	
 
 	// Application loop
 	do
@@ -96,11 +97,24 @@ int main()
 // Show welcome screen
 void showWelcomeScreen()
 {
-	Utility::delay(1);
-	cout << "Welcome to Game Selector!" << endl;
+	string versionText = "1.05";
+
+	cout << "Loading Game Selector Ver " << versionText << endl;
 	cout << endl;
-	cout << "By: James Daniel Semilla" << endl;
+
+	Util::delay(1.5f);
+
+	cout << Util::indentText(5) << "Welcome to Game Selector!" << endl;
 	cout << endl;
+
+	Util::delay(0.25f);
+	cout << Util::indentText(5) << "By: James Daniel Semilla" << endl;
+	cout << endl << endl;
+
+
+	Util::delay(0.25f);
+	showContinuePrompt();
+	clearConsole();
 }
 
 // Perform user input

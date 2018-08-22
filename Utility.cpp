@@ -4,10 +4,11 @@
 #include "Utility.h"
 
 
-namespace Utility
+
+namespace Util
 {
 	// Perform a delay
-	void delay(unsigned seconds)
+	void delay(float seconds)
 	{
 		#ifdef _WIN32
 			Sleep(seconds * 1000);
@@ -17,5 +18,19 @@ namespace Utility
 
 		#endif
 
+	}
+
+
+	// Indent text
+	string indentText(int size)
+	{
+		string indent;
+
+		for (int i = 0; i < size; i++)
+		{
+			indent += " ";
+		}
+
+		return indent;
 	}
 }
