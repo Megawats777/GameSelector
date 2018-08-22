@@ -73,12 +73,19 @@ int main()
 	// Application loop
 	do
 	{
+		displayUserPosition(1);
 		performUserInput(user);
+		
+		showContinuePrompt();
+		clearConsole();
+
+		displayUserPosition(2);
 		selectGame(user, gameList);
 
 		cout << endl;
 		clearConsole();
 
+		displayUserPosition(3);
 		showRepeatPrompt(repeat);
 		
 	} while (repeat == true);

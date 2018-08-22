@@ -6,6 +6,7 @@
 
 
 #include <iostream>
+#include "Utility.h"
 using namespace std;
 
 namespace MainApp
@@ -40,6 +41,16 @@ namespace MainApp
 		/*--Getters and Setters End--*/
 
 	};
+
+
+	// Helper functions
+
+	// Display user position
+	// Parameters: pos
+	// pos = 1 : / Configuration
+	// pos = 2 : / Configuration / Result
+	// pos = 3 : / Configuration / Result / Try Again
+	void displayUserPosition(int pos);
 }
 
 
