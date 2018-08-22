@@ -5,6 +5,8 @@
 #include <time.h>
 #include "Game.h"
 #include "User.h"
+#include "Utility.h"
+
 using namespace std;
 using namespace MainApp;
 
@@ -12,6 +14,7 @@ const int gameListSize = 21;
 
 
 // Forward declare functions
+void showWelcomeScreen();
 void performUserInput(User& user);
 void selectGame(User& user, Game* gameList);
 void checkGameWeirdness(Game& game, User& user);
@@ -61,10 +64,7 @@ int main()
 
 
 	// Show the welcome screen
-	cout << "Welcome to Game Selector!" << endl;
-	cout << endl;
-	cout << "By: James Daniel Semilla" << endl;
-	cout << endl;
+	showWelcomeScreen();
 
 	showContinuePrompt();
 	clearConsole();
@@ -92,6 +92,16 @@ int main()
 	return 0;
 }
 
+
+// Show welcome screen
+void showWelcomeScreen()
+{
+	Utility::delay(1);
+	cout << "Welcome to Game Selector!" << endl;
+	cout << endl;
+	cout << "By: James Daniel Semilla" << endl;
+	cout << endl;
+}
 
 // Perform user input
 void performUserInput(User& user)
@@ -354,11 +364,10 @@ void showRepeatPrompt(bool& loopControlVar)
 // Clear console
 void clearConsole()
 {
+
 #ifdef _WIN32
 	system("cls");
-#endif
-
-#ifdef linux
+#else
 	system("clear");
 #endif
 
