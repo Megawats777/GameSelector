@@ -76,7 +76,6 @@ int main()
 		displayUserPosition(1);
 		performUserInput(user);
 		
-		showContinuePrompt();
 		clearConsole();
 
 		displayUserPosition(2);
@@ -134,7 +133,7 @@ void performUserInput(User& user)
 	// Get the desired intensity
 	while (validInput == false)
 	{
-		cout << "From a scale of 0 to 10 what is your desired intensity: ";
+		cout << Util::indentText(3) << "From a scale of 0 to 10 what is your desired intensity: ";
 		cin >> desiredIntensityAnswer;
 
 		// If the input is incorrect
@@ -142,7 +141,8 @@ void performUserInput(User& user)
 		{
 			cin.clear();
 			cin.ignore(1000, '\n');
-			cout << "ERROR: Please enter a whole number." << endl;
+			cout << endl;
+			cout << Util::indentText(5) << "ERROR: Please enter a whole number." << endl;
 			cout << endl;
 		}
 
@@ -150,7 +150,8 @@ void performUserInput(User& user)
 		{
 			cin.clear();
 			cin.ignore(1000, '\n');
-			cout << "ERROR Please enter a number between 0 and 10." << endl;
+			cout << endl;
+			cout << Util::indentText(5) << "ERROR Please enter a number between 0 and 10." << endl;
 			cout << endl;
 		}
 
@@ -172,7 +173,7 @@ void performUserInput(User& user)
 	// Get the desired experimental level
 	while (validInput == false)
 	{
-		cout << "From a scale of 0 to 10 how experimental do you wanna get: ";
+		cout << Util::indentText(3) << "From a scale of 0 to 10 how experimental do you wanna get: ";
 		cin >> desiredExperimentalLvl;
 
 		// If the input is incorrect
@@ -180,14 +181,18 @@ void performUserInput(User& user)
 		{
 			cin.clear();
 			cin.ignore(1000, '\n');
-			cout << "Please enter a whole number." << endl;
+			cout << endl;
+			cout << Util::indentText(5) << "Please enter a whole number." << endl;
+			cout << endl;
 		}
 
 		else if (desiredExperimentalLvl < experementalLvl_Min || desiredExperimentalLvl > experementalLvl_Max)
 		{
 			cin.clear();
 			cin.ignore(1000, '\n');
-			cout << "Please enter a number between 0 and 10." << endl;
+			cout << endl;
+			cout << Util::indentText(5) << "Please enter a number between 0 and 10." << endl;
+			cout << endl;
 		}
 
 
@@ -231,7 +236,8 @@ void selectGame(User& user, Game* gameList)
 		// If no games were found
 		if (gameCandidateListSize == 0)
 		{
-			cout << "No games found." << endl;
+			cout << Util::indentText(3) << "No games found." << endl;
+			cout << endl;
 			showContinuePrompt();
 		}
 
@@ -259,8 +265,8 @@ void selectGame(User& user, Game* gameList)
 			int selectionIndex = rand() % gameCandidateListSize;
 			copyGameProperties(selectedGame, gameCandidates[selectionIndex]);
 
-			cout << "Selected game:" << endl << endl;
-			gameCandidates[selectionIndex].display(false, false);
+			cout << Util::indentText(3) << "Selected game:" << endl << endl;
+			gameCandidates[selectionIndex].display(false, false, true);
 			cout << endl;
 
 			// Check game weirdness
@@ -293,6 +299,7 @@ void checkGameWeirdness(Game& game, User& user)
 	if (game.getWeirdness() > user.getExperimentalLvl())
 	{
 		int weirdnessDifference = game.getWeirdness() - user.getExperimentalLvl();
+		cout << Util::indentText(3);
 
 		// If the weirdness difference
 		// is greater than 2
@@ -326,10 +333,10 @@ void showRepeatPrompt(bool& loopControlVar)
 
 	while (validInput == false)
 	{
-		cout << "Do you want to look for another game?" << endl;
-		cout << "Press 1 for yes." << endl;
-		cout << "Press 2 for no." << endl;
-		cout << "Response: ";
+		cout << Util::indentText(3) << "Do you want to look for another game?" << endl;
+		cout << Util::indentText(3) << "Press 1 for yes." << endl;
+		cout << Util::indentText(3) << "Press 2 for no." << endl;
+		cout << Util::indentText(3) << "Response: ";
 		cin >> response;
 
 
@@ -338,7 +345,8 @@ void showRepeatPrompt(bool& loopControlVar)
 		{
 			cin.clear();
 			cin.ignore(1000, '\n');
-			cout << "Please enter a number." << endl;
+			cout << endl;
+			cout << Util::indentText(3) << "Please enter a number." << endl;
 			cout << endl;
 		}
 
@@ -351,7 +359,10 @@ void showRepeatPrompt(bool& loopControlVar)
 				cin.ignore(1000, '\n');
 
 				validInput = true;
-				cout << "Restarting..." << endl;
+				cout << endl;
+				cout << Util::indentText(3) << "Restarting..." << endl;
+				cout << endl;
+
 				loopControlVar = true;
 				showContinuePrompt();
 				cout << endl << endl;
@@ -375,6 +386,7 @@ void showRepeatPrompt(bool& loopControlVar)
 			{
 				cin.clear();
 				cin.ignore(1000, '\n');
+				cout << endl;
 				cout << "Please enter a number that is 1 or 2." << endl;
 				cout << endl;
 			}

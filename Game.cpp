@@ -49,7 +49,7 @@ namespace MainApp
 
 
 	// Display function
-	void Game::display(bool showHeader, bool showNameHeader)
+	void Game::display(bool showHeader, bool showNameHeader, bool indentContent)
 	{
 		if (name != nullptr)
 		{
@@ -65,8 +65,15 @@ namespace MainApp
 					cout << "Name: ";
 				}
 
+				
+				indentContent == true ? cout << Util::indentText(5) : cout << "";
 				cout << name << endl;
+				cout << endl;
+
+				indentContent == true ? cout << Util::indentText(5) : cout << "";
 				cout << "Intensity: " << intensity << endl;
+
+				indentContent == true ? cout << Util::indentText(5) : cout << "";
 				cout << "Weirdness: " << weirdness << endl;
 			}
 		}
@@ -221,6 +228,7 @@ namespace MainApp
 		int selectionIndex = rand() % 2;
 		selectedMessage = possibleMessages[selectionIndex];
 
+		cout << Util::indentText(3);
 		cout << selectedMessage << endl;
 
 		delete[] possibleMessages;

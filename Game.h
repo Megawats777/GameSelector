@@ -9,6 +9,7 @@
 #include <string>
 #include <time.h>
 #include "User.h"
+#include "Utility.h"
 
 using namespace std;
 
@@ -27,7 +28,7 @@ namespace MainApp
 	public:
 		Game();
 		Game(char* name, int intensity, int weirdness);
-		void display(bool showHeader = true, bool showNameHeader = true);
+		void display(bool showHeader = true, bool showNameHeader = true, bool indentContent = false);
 
 		/*--Getters and Setters Members--*/
 
