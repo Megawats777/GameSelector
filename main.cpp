@@ -4,6 +4,7 @@
 #include <iostream>
 #include <time.h>
 #include <string>
+#include <math.h>
 #include "Game.h"
 #include "User.h"
 #include "Utility.h"
@@ -16,7 +17,7 @@ const int gameListSize = 21;
 
 // Forward declare functions
 void showWelcomeScreen();
-void performUserInput(User& user);
+void enterUserProperties(User& user);
 void selectGame(User& user, Game* gameList);
 void checkGameWeirdness(Game& game, User& user);
 void showContinuePrompt();
@@ -74,7 +75,7 @@ int main()
 	do
 	{
 		displayUserPosition(1);
-		performUserInput(user);
+		enterUserProperties(user);
 		
 		clearConsole();
 
@@ -105,7 +106,7 @@ void showWelcomeScreen()
 {
 	string versionText = "1.05";
 
-	cout << "Loading Game Selector Ver " << versionText << endl;
+	cout << Util::indentText(1) << "Loading Game Selector Ver " << versionText << endl;
 	cout << endl;
 
 	Util::delay(1.5f);
@@ -124,10 +125,10 @@ void showWelcomeScreen()
 }
 
 // Perform user input
-void performUserInput(User& user)
+void enterUserProperties(User& user)
 {
-	int desiredIntensityAnswer = 0;
-	int desiredExperimentalLvl = 0;
+	float desiredIntensityAnswer = 0;
+	float desiredExperimentalLvl = 0;
 	bool validInput = false;
 
 	// Get the desired intensity
@@ -135,6 +136,8 @@ void performUserInput(User& user)
 	{
 		cout << Util::indentText(3) << "From a scale of 0 to 10 what is your desired intensity: ";
 		cin >> desiredIntensityAnswer;
+		/*desiredIntensityAnswer = abs(desiredIntensityAnswer);
+		cout << "Desired Intensity answer: " << desiredIntensityAnswer << endl;*/
 
 		// If the input is incorrect
 		if (cin.fail())
@@ -175,6 +178,8 @@ void performUserInput(User& user)
 	{
 		cout << Util::indentText(3) << "From a scale of 0 to 10 how experimental do you wanna get: ";
 		cin >> desiredExperimentalLvl;
+		/*desiredExperimentalLvl = abs(desiredExperimentalLvl);
+		cout << "Desired Experimental lvl: " << desiredExperimentalLvl << endl;*/
 
 		// If the input is incorrect
 		if (cin.fail())
@@ -320,7 +325,7 @@ void checkGameWeirdness(Game& game, User& user)
 // Show continue prompt
 void showContinuePrompt()
 {
-	cout << "Press enter to continue: ";
+	cout << Util::indentText(1) << "Press enter to continue: ";
 	cin.ignore();
 }
 
@@ -334,8 +339,10 @@ void showRepeatPrompt(bool& loopControlVar)
 	while (validInput == false)
 	{
 		cout << Util::indentText(3) << "Do you want to look for another game?" << endl;
+		cout << endl;
 		cout << Util::indentText(3) << "Press 1 for yes." << endl;
 		cout << Util::indentText(3) << "Press 2 for no." << endl;
+		cout << endl;
 		cout << Util::indentText(3) << "Response: ";
 		cin >> response;
 
@@ -377,7 +384,7 @@ void showRepeatPrompt(bool& loopControlVar)
 				validInput = true;
 				loopControlVar = false;
 				cout << endl;
-				cout << "Thank you for your time!" << endl;
+				cout << Util::indentText(1) << "Thank you for your time!" << endl;
 				cout << endl;
 			}
 
