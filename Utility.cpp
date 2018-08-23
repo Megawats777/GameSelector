@@ -33,4 +33,28 @@ namespace Util
 
 		return indent;
 	}
+
+	// Check if number is whole
+	bool isWholeNumber(double num)
+	{
+		double lowestVal = floor(num);
+		double highestVal = ceil(num);
+		bool answer = false;
+
+		// If the given number is between the lowest value and the highest value
+		if (num > lowestVal && num < highestVal)
+		{
+			answer = false;
+		}
+
+		// If the given number is equal to the lowest val
+		else if (num == lowestVal)
+		{
+			answer = true;
+		}
+
+
+
+		return answer;
+	}
 }

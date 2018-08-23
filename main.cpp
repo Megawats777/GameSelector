@@ -31,22 +31,22 @@ int main()
 
 	setGameProperties(gameList[0], "Rainbow Six Siege", 10, 3);
 	setGameProperties(gameList[1], "CSGO", 10, 2);
-	
+
 	setGameProperties(gameList[2], "Vanquish", 9, 5);
 	setGameProperties(gameList[3], "Mirror's Edge", 9, 4);
-	
+
 	setGameProperties(gameList[4], "Nier Automata", 8, 9);
 	setGameProperties(gameList[5], "Warframe", 8, 7);
-	
+
 	setGameProperties(gameList[6], "Superhot", 7, 10);
 	setGameProperties(gameList[7], "The Division", 7, 3);
-	
+
 	setGameProperties(gameList[8], "The Phantom Pain", 6, 9);
 	setGameProperties(gameList[9], "GRID", 6, 2);
 
 	setGameProperties(gameList[10], "Skate 2", 5, 3);
 	setGameProperties(gameList[11], "Star Wars Battlefront 2 (The real one.)", 5, 4);
-	
+
 	setGameProperties(gameList[12], "Gran Turismo 5", 4, 2);
 	setGameProperties(gameList[13], "Little Big Planet", 4, 7);
 
@@ -69,14 +69,14 @@ int main()
 	// Show the welcome screen
 	showWelcomeScreen();
 
-	
+
 
 	// Application loop
 	do
 	{
 		displayUserPosition(1);
 		enterUserProperties(user);
-		
+
 		clearConsole();
 
 		displayUserPosition(2);
@@ -87,7 +87,7 @@ int main()
 
 		displayUserPosition(3);
 		showRepeatPrompt(repeat);
-		
+
 	} while (repeat == true);
 
 
@@ -136,8 +136,7 @@ void enterUserProperties(User& user)
 	{
 		cout << Util::indentText(3) << "From a scale of 0 to 10 what is your desired intensity: ";
 		cin >> desiredIntensityAnswer;
-		/*desiredIntensityAnswer = abs(desiredIntensityAnswer);
-		cout << "Desired Intensity answer: " << desiredIntensityAnswer << endl;*/
+
 
 		// If the input is incorrect
 		if (cin.fail())
@@ -162,6 +161,14 @@ void enterUserProperties(User& user)
 		// If input is correct
 		else
 		{
+			// If the response is not a whole number
+			if (Util::isWholeNumber(desiredIntensityAnswer) == false)
+			{
+				cout << endl;
+				cout << Util::indentText(5) << "Answer converted to: " << floor(desiredIntensityAnswer) << endl;
+				desiredIntensityAnswer = floor(desiredIntensityAnswer);
+			}
+
 			validInput = true;
 			user.setDesiredIntensity(desiredIntensityAnswer);
 		}
@@ -178,8 +185,7 @@ void enterUserProperties(User& user)
 	{
 		cout << Util::indentText(3) << "From a scale of 0 to 10 how experimental do you wanna get: ";
 		cin >> desiredExperimentalLvl;
-		/*desiredExperimentalLvl = abs(desiredExperimentalLvl);
-		cout << "Desired Experimental lvl: " << desiredExperimentalLvl << endl;*/
+
 
 		// If the input is incorrect
 		if (cin.fail())
@@ -206,12 +212,24 @@ void enterUserProperties(User& user)
 		{
 			cin.clear();
 			cin.ignore(1000, '\n');
+
+			if (Util::isWholeNumber(desiredExperimentalLvl) == false)
+			{
+				cout << endl;
+				cout << Util::indentText(5) << "Answer converted to: " << floor(desiredExperimentalLvl) << endl;
+				cout << endl;
+				desiredExperimentalLvl = floor(desiredExperimentalLvl);
+				showContinuePrompt();
+			}
+
+
 			validInput = true;
 			user.setExperimentalLvl(desiredExperimentalLvl);
 		}
 	}
 
 	cout << endl;
+
 }
 
 // Select a game
@@ -277,10 +295,10 @@ void selectGame(User& user, Game* gameList)
 			// Check game weirdness
 			checkGameWeirdness(selectedGame, user);
 			cout << endl;
-		
+
 			displayEnjoymentMessage(selectedGame);
 			cout << endl;
-		
+
 			showContinuePrompt();
 		}
 
@@ -326,7 +344,7 @@ void checkGameWeirdness(Game& game, User& user)
 void showContinuePrompt()
 {
 	cout << Util::indentText(1) << "Press enter to continue: ";
-	cin.ignore();
+	cin.ignore(1000, '\n');
 }
 
 
@@ -334,7 +352,7 @@ void showContinuePrompt()
 void showRepeatPrompt(bool& loopControlVar)
 {
 	bool validInput = false;
-	int response = -1;
+	float response = -1;
 
 	while (validInput == false)
 	{
@@ -353,15 +371,24 @@ void showRepeatPrompt(bool& loopControlVar)
 			cin.clear();
 			cin.ignore(1000, '\n');
 			cout << endl;
-			cout << Util::indentText(3) << "Please enter a number." << endl;
+			cout << Util::indentText(5) << "Please enter a number." << endl;
 			cout << endl;
 		}
 
 		// If input is correct
 		else
 		{
+			// If the response is not a whole number
+			if (Util::isWholeNumber(response) == false)
+			{
+				cout << endl;
+				cout << Util::indentText(5) << "Response converted to: " << floor(response) << endl;
+				response = floor(response);
+			}
+
 			if (response == 1)
 			{
+
 				cin.clear();
 				cin.ignore(1000, '\n');
 
@@ -384,7 +411,7 @@ void showRepeatPrompt(bool& loopControlVar)
 				validInput = true;
 				loopControlVar = false;
 				cout << endl;
-				cout << Util::indentText(1) << "Thank you for your time!" << endl;
+				cout << Util::indentText(5) << "Thank you for your time!" << endl;
 				cout << endl;
 			}
 
@@ -394,7 +421,7 @@ void showRepeatPrompt(bool& loopControlVar)
 				cin.clear();
 				cin.ignore(1000, '\n');
 				cout << endl;
-				cout << "Please enter a number that is 1 or 2." << endl;
+				cout << Util::indentText(5) << "Please enter a number that is 1 or 2." << endl;
 				cout << endl;
 			}
 		}

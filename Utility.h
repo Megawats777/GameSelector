@@ -5,6 +5,7 @@
 
 #include <iostream>
 #include <string>
+#include <math.h>
 
 #ifdef _WIN32
 #include <Windows.h>
@@ -27,6 +28,9 @@ namespace Util
 
 	// Indent text
 	string indentText(int size);
+
+	// Check if number is whole
+	bool isWholeNumber(double num);
 }
 
 
