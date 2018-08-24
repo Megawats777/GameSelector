@@ -57,4 +57,19 @@ namespace Util
 
 		return answer;
 	}
+
+
+	// Print dashed line
+	void printDashedLine(int size, bool printNewLine)
+	{
+		for (int i = 0; i < size; i++)
+		{
+			cout << "-";
+		}
+
+		if (printNewLine == true)
+		{
+			cout << endl;
+		}
+	}
 }

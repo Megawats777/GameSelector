@@ -120,6 +120,11 @@ void showWelcomeScreen()
 
 
 	Util::delay(0.25f);
+
+	//cout << Util::indentText(1);
+	Util::printDashedLine(Util::dashedLineDefaultWidth, true);
+	cout << endl;
+
 	showContinuePrompt();
 	clearConsole();
 }
@@ -127,6 +132,8 @@ void showWelcomeScreen()
 // Perform user input
 void enterUserProperties(User& user)
 {
+	int dashedLineWidthAddition = 50;
+
 	float desiredIntensityAnswer = 0;
 	float desiredExperimentalLvl = 0;
 	bool validInput = false;
@@ -144,7 +151,10 @@ void enterUserProperties(User& user)
 			cin.clear();
 			cin.ignore(1000, '\n');
 			cout << endl;
-			cout << Util::indentText(5) << "ERROR: Please enter a whole number." << endl;
+			cout << Util::indentText(5) << "ERROR: Please enter a number." << endl;
+			cout << endl;
+
+			Util::printDashedLine(Util::dashedLineDefaultWidth + dashedLineWidthAddition);
 			cout << endl;
 		}
 
@@ -154,6 +164,9 @@ void enterUserProperties(User& user)
 			cin.ignore(1000, '\n');
 			cout << endl;
 			cout << Util::indentText(5) << "ERROR Please enter a number between 0 and 10." << endl;
+			cout << endl;
+
+			Util::printDashedLine(Util::dashedLineDefaultWidth + dashedLineWidthAddition);
 			cout << endl;
 		}
 
@@ -177,6 +190,9 @@ void enterUserProperties(User& user)
 
 	cout << endl;
 
+	Util::printDashedLine(Util::dashedLineDefaultWidth + dashedLineWidthAddition);
+	cout << endl;
+
 	validInput = false;
 
 
@@ -193,7 +209,10 @@ void enterUserProperties(User& user)
 			cin.clear();
 			cin.ignore(1000, '\n');
 			cout << endl;
-			cout << Util::indentText(5) << "Please enter a whole number." << endl;
+			cout << Util::indentText(5) << "Please enter a number." << endl;
+			cout << endl;
+
+			Util::printDashedLine(Util::dashedLineDefaultWidth + dashedLineWidthAddition);
 			cout << endl;
 		}
 
@@ -203,6 +222,9 @@ void enterUserProperties(User& user)
 			cin.ignore(1000, '\n');
 			cout << endl;
 			cout << Util::indentText(5) << "Please enter a number between 0 and 10." << endl;
+			cout << endl;
+		
+			Util::printDashedLine(Util::dashedLineDefaultWidth + dashedLineWidthAddition);
 			cout << endl;
 		}
 
@@ -219,12 +241,15 @@ void enterUserProperties(User& user)
 				cout << Util::indentText(5) << "Answer converted to: " << floor(desiredExperimentalLvl) << endl;
 				cout << endl;
 				desiredExperimentalLvl = floor(desiredExperimentalLvl);
+				
+				Util::printDashedLine(Util::dashedLineDefaultWidth + dashedLineWidthAddition);
+				cout << endl;
+				
 				showContinuePrompt();
 			}
-
-
 			validInput = true;
 			user.setExperimentalLvl(desiredExperimentalLvl);
+
 		}
 	}
 

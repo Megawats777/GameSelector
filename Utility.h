@@ -23,6 +23,9 @@ using namespace std;
 
 namespace Util
 {
+	const int dashedLineDefaultWidth = 50;
+
+
 	// Perform a delay
 	void delay(float seconds);
 
@@ -31,6 +34,9 @@ namespace Util
 
 	// Check if number is whole
 	bool isWholeNumber(double num);
+
+	// Print dashed line
+	void printDashedLine(int size, bool printNewLine = true);
 }
 
 
