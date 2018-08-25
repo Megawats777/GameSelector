@@ -5,6 +5,7 @@
 #include <time.h>
 #include <string>
 #include <math.h>
+#include <cstdio>
 #include "Game.h"
 #include "User.h"
 #include "Utility.h"
@@ -398,6 +399,9 @@ void showRepeatPrompt(bool& loopControlVar)
 			cout << endl;
 			cout << Util::indentText(5) << "Please enter a number." << endl;
 			cout << endl;
+
+			Util::printDashedLine(Util::dashedLineDefaultWidth);
+			cout << endl;
 		}
 
 		// If input is correct
@@ -423,8 +427,9 @@ void showRepeatPrompt(bool& loopControlVar)
 				cout << endl;
 
 				loopControlVar = true;
+				Util::printDashedLine(Util::dashedLineDefaultWidth);
+				cout << endl;
 				showContinuePrompt();
-				cout << endl << endl;
 				clearConsole();
 			}
 
@@ -438,6 +443,9 @@ void showRepeatPrompt(bool& loopControlVar)
 				cout << endl;
 				cout << Util::indentText(5) << "Thank you for your time!" << endl;
 				cout << endl;
+			
+				Util::printDashedLine(Util::dashedLineDefaultWidth);
+				cout << endl;
 			}
 
 			// If a number that was not 1 or 2 was entered
@@ -447,6 +455,9 @@ void showRepeatPrompt(bool& loopControlVar)
 				cin.ignore(1000, '\n');
 				cout << endl;
 				cout << Util::indentText(5) << "Please enter a number that is 1 or 2." << endl;
+				cout << endl;
+
+				Util::printDashedLine(Util::dashedLineDefaultWidth);
 				cout << endl;
 			}
 		}
