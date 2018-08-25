@@ -6,6 +6,7 @@
 
 
 #include <iostream>
+#include <string>
 #include "Utility.h"
 using namespace std;
 

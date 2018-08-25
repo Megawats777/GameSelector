@@ -38,8 +38,8 @@ namespace MainApp
 
 
 	/*--Getters and Setters End--*/
-	
-	
+
+
 	// Display user position
 	// Parameters: pos
 	// pos = 1 : / Configuration
@@ -47,29 +47,31 @@ namespace MainApp
 	// pos = 3 : / Configuration / Result / Try Again
 	void displayUserPosition(int pos)
 	{
+		const int pStatesListSize = 3;
+
+		string positionStates[pStatesListSize];
+		positionStates[0] = "Configuration";
+		positionStates[1] = "Result";
+		positionStates[2] = "Try Again";
+
 		cout << Util::indentText(1);
 
-		if (pos == 1)
+		// If an invalid position was entered (ex: -1) or > pStatesListSize
+		if (pos < 1 || pos > pStatesListSize)
 		{
-			cout << "/ Configuration" << endl;
+			cout << "Invalid Position...";
 		}
 
-		else if (pos == 2)
-		{
-			cout << "/ Configuration / Result" << endl;
-		}
-
-		else if (pos == 3)
-		{
-			cout << "/ Configuration / Result / Try Again" << endl;
-		}
-
+		// Otherwise
 		else
 		{
-			cout << "Invalid position" << endl;
+			for (int i = 0; i < pos; i++)
+			{
+				cout << "/ " << positionStates[i] << " ";
+			}
 		}
 
-		cout << endl;
+		cout << endl << endl;
 	}
 
 
