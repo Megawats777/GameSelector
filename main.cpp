@@ -404,62 +404,68 @@ void showRepeatPrompt(bool& loopControlVar)
 			cout << endl;
 		}
 
-		// If input is correct
+		// If input data is correct
 		else
 		{
-			// If the response is not a whole number
-			if (Util::isWholeNumber(response) == false)
-			{
-				cout << endl;
-				cout << Util::indentText(5) << "Response converted to: " << floor(response) << endl;
-				response = floor(response);
-			}
-
-			if (response == 1)
-			{
-
-				cin.clear();
-				cin.ignore(1000, '\n');
-
-				validInput = true;
-				cout << endl;
-				cout << Util::indentText(3) << "Restarting..." << endl;
-				cout << endl;
-
-				loopControlVar = true;
-				Util::printDashedLine(Util::dashedLineDefaultWidth);
-				cout << endl;
-				showContinuePrompt();
-				clearConsole();
-			}
-
-			else if (response == 2)
+			// If a number less than 1 or greater than 2 was entered
+			if (response < 1 || response > 2)
 			{
 				cin.clear();
 				cin.ignore(1000, '\n');
+				cout << endl;
+				cout << Util::indentText(5) << "Please enter a number that is either 1 or 2." << endl;
+				cout << endl;
 
-				validInput = true;
-				loopControlVar = false;
-				cout << endl;
-				cout << Util::indentText(5) << "Thank you for your time!" << endl;
-				cout << endl;
-			
 				Util::printDashedLine(Util::dashedLineDefaultWidth);
 				cout << endl;
 			}
 
-			// If a number that was not 1 or 2 was entered
+			// Otherwise
 			else
 			{
-				cin.clear();
-				cin.ignore(1000, '\n');
-				cout << endl;
-				cout << Util::indentText(5) << "Please enter a number that is 1 or 2." << endl;
-				cout << endl;
+				// If the response is not a whole number
+				if (Util::isWholeNumber(response) == false)
+				{
+					cout << endl;
+					cout << Util::indentText(5) << "Response converted to: " << floor(response) << endl;
+					response = floor(response);
+				}
 
-				Util::printDashedLine(Util::dashedLineDefaultWidth);
-				cout << endl;
+				if (response == 1)
+				{
+
+					cin.clear();
+					cin.ignore(1000, '\n');
+
+					validInput = true;
+					cout << endl;
+					cout << Util::indentText(3) << "Restarting..." << endl;
+					cout << endl;
+
+					loopControlVar = true;
+					Util::printDashedLine(Util::dashedLineDefaultWidth);
+					cout << endl;
+
+					showContinuePrompt();
+					clearConsole();
+				}
+
+				else if (response == 2)
+				{
+					cin.clear();
+					cin.ignore(1000, '\n');
+
+					validInput = true;
+					loopControlVar = false;
+					cout << endl;
+					cout << Util::indentText(5) << "Thank you for your time!" << endl;
+					cout << endl;
+
+					Util::printDashedLine(Util::dashedLineDefaultWidth);
+					cout << endl;
+				}
 			}
+
 		}
 	}
 }
