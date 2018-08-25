@@ -174,10 +174,12 @@ namespace MainApp
 		game.setWeirdness(weirdness);
 	}
 
+
 	bool doesGameMatchDesiredIntensity(Game& game, User& user)
 	{
 		return game.getIntensity() == user.getDesiredIntensity();
 	}
+
 
 	void copyGameProperties(Game& destination, Game& source)
 	{
@@ -190,42 +192,61 @@ namespace MainApp
 	void displayEnjoymentMessage(Game& game)
 	{
 		int gIntensity = game.getIntensity();
-		string* possibleMessages = new string[2];
+		int pMessagesListSize = 0;
+		string* possibleMessages = nullptr;
 		string selectedMessage;
 
 		if (gIntensity == 10 || gIntensity == 9)
 		{
+			pMessagesListSize = 3;
+			possibleMessages = new string[pMessagesListSize];
 			possibleMessages[0] = "Enjoy and don't get a heart attack!";
 			possibleMessages[1] = "You may start to sweat...";
+			possibleMessages[2] = "At least you're on the road to Germany.";
 		}
 
 		else if (gIntensity == 8 || gIntensity == 7)
 		{
+			pMessagesListSize = 2;
+			possibleMessages = new string[pMessagesListSize];
 			possibleMessages[0] = "Have a fun time!";
 			possibleMessages[1] = "Enjoy!";
 		}
 
 		else if (gIntensity == 6 || gIntensity == 5)
 		{
+			pMessagesListSize = 2;
+			possibleMessages = new string[pMessagesListSize];
 			possibleMessages[0] = "Sit back and enjoy!";
 			possibleMessages[1] = "Relax and have fun!";
 		}
 
 		else if (gIntensity == 4 || gIntensity == 3)
 		{
+			pMessagesListSize = 2;
+			possibleMessages = new string[pMessagesListSize];
 			possibleMessages[0] = "At least you won't get a heart attack from this game.";
 			possibleMessages[1] = "Enjoy a calm and soothing experience!";
 		}
 
 		else if (gIntensity == 2 || gIntensity == 1)
 		{
+			pMessagesListSize = 2;
+			possibleMessages = new string[pMessagesListSize];
 			possibleMessages[0] = "Enjoy a REALLY calming experience!";
 			possibleMessages[1] = "Prepare for a nap...";
 		}
 
+		else
+		{
+			pMessagesListSize = 1;
+			possibleMessages = new string[pMessagesListSize];
+			possibleMessages[0] = "No enjoyment message available.";
+		}
+
 		// Select the message to use
 		srand(time(NULL));
-		int selectionIndex = rand() % 2;
+		int selectionIndex = rand() % pMessagesListSize;
 		selectedMessage = possibleMessages[selectionIndex];
 
 		cout << Util::indentText(3);
