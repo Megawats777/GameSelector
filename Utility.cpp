@@ -10,13 +10,13 @@ namespace Util
 	// Perform a delay
 	void delay(float seconds)
 	{
-		#ifdef _WIN32
-			Sleep(seconds * 1000);
+#ifdef _WIN32
+		Sleep(seconds * 1000);
 
-		#else
-			usleep(seconds * 1000000);
+#else
+		usleep(seconds * 1000000);
 
-		#endif
+#endif
 
 	}
 
@@ -71,5 +71,15 @@ namespace Util
 		{
 			cout << endl;
 		}
+	}
+
+	// Clear console
+	void clearConsole()
+	{
+	#ifdef _WIN32
+		system("cls");
+	#else
+		system("clear");
+	#endif
 	}
 }

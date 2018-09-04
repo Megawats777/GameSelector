@@ -37,6 +37,9 @@ namespace Util
 
 	// Print dashed line
 	void printDashedLine(int size, bool printNewLine = true);
+
+	// Clear the console
+	void clearConsole();
 }
 
 

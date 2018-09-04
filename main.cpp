@@ -23,7 +23,6 @@ void selectGame(User& user, Game* gameList);
 void checkGameWeirdness(Game& game, User& user);
 void showContinuePrompt();
 void showRepeatPrompt(bool& loopControlVar);
-void clearConsole();
 
 
 int main()
@@ -78,13 +77,13 @@ int main()
 		displayUserPosition(1);
 		enterUserProperties(user);
 
-		clearConsole();
+		Util::clearConsole();
 
 		displayUserPosition(2);
 		selectGame(user, gameList);
 
 		cout << endl;
-		clearConsole();
+		Util::clearConsole();
 
 		displayUserPosition(3);
 		showRepeatPrompt(repeat);
@@ -127,7 +126,7 @@ void showWelcomeScreen()
 	cout << endl;
 
 	showContinuePrompt();
-	clearConsole();
+	Util::clearConsole();
 }
 
 // Perform user input
@@ -447,7 +446,7 @@ void showRepeatPrompt(bool& loopControlVar)
 					cout << endl;
 
 					showContinuePrompt();
-					clearConsole();
+					Util::clearConsole();
 				}
 
 				else if (response == 2)
@@ -470,14 +469,3 @@ void showRepeatPrompt(bool& loopControlVar)
 	}
 }
 
-// Clear console
-void clearConsole()
-{
-
-#ifdef _WIN32
-	system("cls");
-#else
-	system("clear");
-#endif
-
-}
