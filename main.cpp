@@ -13,6 +13,7 @@
 using namespace std;
 using namespace MainApp;
 
+
 const int gameListSize = 21;
 
 
@@ -121,7 +122,6 @@ void showWelcomeScreen()
 
 	Util::delay(0.25f);
 
-	//cout << Util::indentText(1);
 	Util::printDashedLine(Util::dashedLineDefaultWidth, true);
 	cout << endl;
 
