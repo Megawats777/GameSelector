@@ -30,7 +30,7 @@ int main()
 {
 	Game* gameList = new Game[gameListSize];
 
-	setGameProperties(gameList[0], "Rainbow Six Siege", 10, 3);
+	setGameProperties(gameList[0], "Rainbow Six Siege", 10, 3, true, "Always play ranked.");
 	setGameProperties(gameList[1], "CSGO", 10, 2);
 
 	setGameProperties(gameList[2], "Vanquish", 9, 5);
@@ -323,6 +323,19 @@ void selectGame(User& user, Game* gameList)
 
 			displayEnjoymentMessage(selectedGame);
 			cout << endl;
+
+			// If the selected game has a developer's note
+			if (selectedGame.getHasDevNote() == true)
+			{
+				cout << endl;
+				Util::printDashedLine(Util::dashedLineDefaultWidth);
+				cout << endl;
+				selectedGame.displayDevNote();
+				cout << endl;
+				Util::printDashedLine(Util::dashedLineDefaultWidth);
+				cout << endl;
+			}
+
 
 			showContinuePrompt();
 		}

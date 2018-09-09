@@ -17,13 +17,17 @@ namespace MainApp
 		name = "No game name assigned.";
 		intensity = 0;
 		weirdness = 0;
+		hasDevNote = false;
+		devNote = "";
 	}
 
-	Game::Game(char* name, int intensity, int weirdness)
+	Game::Game(char* name, int intensity, int weirdness, bool hasDevNote, string devNote)
 	{
 		this->name = "No game name assigned.";
 		this->intensity = 0;
 		this->weirdness = 0;
+		this->hasDevNote = false;
+		this->devNote = "";
 
 		if (name != nullptr)
 		{
@@ -34,6 +38,8 @@ namespace MainApp
 				this->name = name;
 				setIntensity(intensity);
 				setWeirdness(weirdness);
+				this->hasDevNote = hasDevNote;
+				this->devNote = devNote;
 			}
 			else
 			{
@@ -65,7 +71,7 @@ namespace MainApp
 					cout << "Name: ";
 				}
 
-				
+
 				indentContent == true ? cout << Util::indentText(5) : cout << "";
 				cout << name << endl;
 				cout << endl;
@@ -78,6 +84,15 @@ namespace MainApp
 			}
 		}
 
+	}
+
+
+	// Display the developer's note
+	void Game::displayDevNote()
+	{
+		cout << Util::indentText(3) << "Developer's note:" << endl;
+		cout << endl;
+		cout << Util::indentText(5) << getDevNote() << endl;
 	}
 
 	/*--Getters and Setters--*/
@@ -107,6 +122,10 @@ namespace MainApp
 			this->name = "No name assigned.";
 		}
 	}
+
+
+
+
 
 	int Game::getIntensity()
 	{
@@ -179,7 +198,14 @@ namespace MainApp
 
 	string Game::getDevNote()
 	{
-		return devNote;
+		if (hasDevNote == true)
+		{
+			return devNote;
+		}
+		else
+		{
+			return "This Game object does not have a dev note.";
+		}
 	}
 
 	void Game::setDevNote(string devNote)
@@ -200,11 +226,8 @@ namespace MainApp
 		game.setName(name);
 		game.setIntensity(intensity);
 		game.setWeirdness(weirdness);
-	
-		if (hasDevNote == true)
-		{
-			game.setDevNote(devNote);
-		}
+		game.setHasDevNote(hasDevNote);
+		game.setDevNote(devNote);
 	}
 
 
@@ -219,6 +242,8 @@ namespace MainApp
 		destination.setName(source.getName());
 		destination.setIntensity(source.getIntensity());
 		destination.setWeirdness(source.getWeirdness());
+		destination.setHasDevNote(source.getHasDevNote());
+		destination.setDevNote(source.getDevNote());
 	}
 
 

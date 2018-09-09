@@ -29,8 +29,9 @@ namespace MainApp
 		// Public members
 	public:
 		Game();
-		Game(char* name, int intensity, int weirdness);
+		Game(char* name, int intensity, int weirdness, bool hasDevNote, string devNote);
 		void display(bool showHeader = true, bool showNameHeader = true, bool indentContent = false);
+		void displayDevNote();
 
 		/*--Getters and Setters Members--*/
 
