@@ -161,17 +161,50 @@ namespace MainApp
 
 
 
+
+
+	bool Game::getHasDevNote()
+	{
+		return hasDevNote;
+	}
+
+	void Game::setHasDevNote(bool hasDevNote)
+	{
+		this->hasDevNote = hasDevNote;
+	}
+
+
+
+
+
+	string Game::getDevNote()
+	{
+		return devNote;
+	}
+
+	void Game::setDevNote(string devNote)
+	{
+		this->devNote = devNote;
+	}
+
+
+
 	/*--Getters and Setters End--*/
 
 
 	// Helper functions
 
 
-	void setGameProperties(Game & game, char * name, int intensity, int weirdness)
+	void setGameProperties(Game & game, char * name, int intensity, int weirdness, bool hasDevNote, string devNote)
 	{
 		game.setName(name);
 		game.setIntensity(intensity);
 		game.setWeirdness(weirdness);
+	
+		if (hasDevNote == true)
+		{
+			game.setDevNote(devNote);
+		}
 	}
 
 

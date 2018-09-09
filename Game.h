@@ -23,6 +23,8 @@ namespace MainApp
 		char* name;
 		int intensity;
 		int weirdness;
+		bool hasDevNote;
+		string devNote;
 
 		// Public members
 	public:
@@ -41,13 +43,21 @@ namespace MainApp
 		int getWeirdness();
 		void setWeirdness(int weirdness);
 
+
+		bool getHasDevNote();
+		void setHasDevNote(bool hasDevNote);
+
+
+		string getDevNote();
+		void setDevNote(string devNote);
+
 		/*--Getters and Setters Members End--*/
 
 	};
 
 
 	// Helper functions
-	void setGameProperties(Game& game, char* name, int intensity, int weirdness);
+	void setGameProperties(Game& game, char* name, int intensity, int weirdness, bool hasDevNote = false, string devNote = "");
 	bool doesGameMatchDesiredIntensity(Game& game, User& user);
 	void copyGameProperties(Game& destination, Game& source);
 	void displayEnjoymentMessage(Game& game);
