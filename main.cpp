@@ -33,22 +33,22 @@ int main()
 	setGameProperties(gameList[0], "Rainbow Six Siege", 10, 3, true, "Always play ranked.");
 	setGameProperties(gameList[1], "CSGO", 10, 2);
 
-	setGameProperties(gameList[2], "Vanquish", 9, 5);
+	setGameProperties(gameList[2], "Vanquish", 9, 5, true, "Sega and Platinum please make Vanquish 2.");
 	setGameProperties(gameList[3], "Mirror's Edge", 9, 4);
 
-	setGameProperties(gameList[4], "Nier Automata", 8, 9);
+	setGameProperties(gameList[4], "Nier Automata", 8, 9, true, "The real game begins after ending B.");
 	setGameProperties(gameList[5], "Warframe", 8, 7);
 
-	setGameProperties(gameList[6], "Superhot", 7, 10);
+	setGameProperties(gameList[6], "Superhot", 7, 10, true, "Don't play this at 2am.");
 	setGameProperties(gameList[7], "The Division", 7, 3);
 
-	setGameProperties(gameList[8], "The Phantom Pain", 6, 9);
+	setGameProperties(gameList[8], "The Phantom Pain", 6, 9, true, "D-Dog is the best buddy.");
 	setGameProperties(gameList[9], "GRID", 6, 2);
 
 	setGameProperties(gameList[10], "Skate 2", 5, 3);
 	setGameProperties(gameList[11], "Star Wars Battlefront 2 (The real one.)", 5, 4);
 
-	setGameProperties(gameList[12], "Gran Turismo 5", 4, 2);
+	setGameProperties(gameList[12], "Gran Turismo 5", 4, 2, true, "You spend more time installing instead of playing.");
 	setGameProperties(gameList[13], "Little Big Planet", 4, 7);
 
 	setGameProperties(gameList[14], "Portal", 3, 6);

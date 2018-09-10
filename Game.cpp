@@ -256,11 +256,11 @@ namespace MainApp
 
 		if (gIntensity == 10 || gIntensity == 9)
 		{
-			pMessagesListSize = 3;
+			pMessagesListSize = 2;
 			possibleMessages = new string[pMessagesListSize];
 			possibleMessages[0] = "Enjoy and don't get a heart attack!";
 			possibleMessages[1] = "You may start to sweat...";
-			possibleMessages[2] = "At least you're on the road to Germany.";
+			//possibleMessages[2] = "At least you're on the road to Germany.";
 		}
 
 		else if (gIntensity == 8 || gIntensity == 7)
