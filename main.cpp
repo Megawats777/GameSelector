@@ -45,10 +45,10 @@ int main()
 	setGameProperties(gameList[8], "The Phantom Pain", 6, 9, true, "D-Dog is the best buddy.");
 	setGameProperties(gameList[9], "GRID", 6, 2);
 
-	setGameProperties(gameList[10], "Skate 2", 5, 3);
+	setGameProperties(gameList[10], "Skate 2", 5, 3, true, "Still one of the best skateboarding games ever made.");
 	setGameProperties(gameList[11], "Star Wars Battlefront 2 (The real one.)", 5, 4);
 
-	setGameProperties(gameList[12], "Gran Turismo 5", 4, 2, true, "You spend more time installing instead of playing.");
+	setGameProperties(gameList[12], "Gran Turismo 5", 4, 2, true, "You'll spend more time installing instead of playing.");
 	setGameProperties(gameList[13], "Little Big Planet", 4, 7);
 
 	setGameProperties(gameList[14], "Portal", 3, 6);

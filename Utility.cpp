@@ -10,13 +10,13 @@ namespace Util
 	// Perform a delay
 	void delay(float seconds)
 	{
-#ifdef _WIN32
+	#ifdef _WIN32
 		Sleep(seconds * 1000);
 
-#else
+	#else
 		usleep(seconds * 1000000);
 
-#endif
+	#endif
 
 	}
 
