@@ -92,7 +92,7 @@ namespace MainApp
 	{
 		cout << Util::indentText(3) << "Developer's note:" << endl;
 		cout << endl;
-		cout << Util::indentText(5) << getDevNote() << endl;
+		cout << Util::indentText(5) << "\"" << getDevNote() << "\"" << endl;
 	}
 
 	/*--Getters and Setters--*/

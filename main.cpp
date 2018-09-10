@@ -50,14 +50,14 @@ int main()
 	setGameProperties(gameList[12], "Gran Turismo 5", 4, 2, true, "You'll spend more time installing instead of playing.");
 	setGameProperties(gameList[13], "Little Big Planet", 4, 7);
 
-	setGameProperties(gameList[14], "Portal", 3, 6);
+	setGameProperties(gameList[14], "Portal", 3, 6, true, "A game that is still unique to this day.");
 	setGameProperties(gameList[15], "Hexic", 3, 2);
 
-	setGameProperties(gameList[16], "XCOM Enemy Unknown", 2, 6);
-	setGameProperties(gameList[17], "Kerbal Space Program", 2, 5);
-	setGameProperties(gameList[18], "Flower", 2, 5);
+	setGameProperties(gameList[16], "XCOM Enemy Unknown", 2, 6, true, "This game will massage and punch you at the same time.");
+	setGameProperties(gameList[17], "Kerbal Space Program", 2, 5, true, "All my rockets always end up in the sun.");
+	setGameProperties(gameList[18], "Flower", 2, 5, true, "One of the first artsy games that I truely enjoyed.");
 
-	setGameProperties(gameList[19], "Tonka Construction 2", 1, 4);
+	setGameProperties(gameList[19], "Tonka Construction 2", 1, 4, true, "The best game I ever got from a cereal box.");
 	setGameProperties(gameList[20], "Bob the Builder: Can we fix it?", 1, 2);
 
 	User user;
@@ -222,7 +222,7 @@ void enterUserProperties(User& user)
 			cout << endl;
 			cout << Util::indentText(5) << "Please enter a number between 0 and 10." << endl;
 			cout << endl;
-		
+
 			Util::printDashedLine(Util::dashedLineDefaultWidth + dashedLineWidthAddition);
 			cout << endl;
 		}
@@ -240,10 +240,10 @@ void enterUserProperties(User& user)
 				cout << Util::indentText(5) << "Answer converted to: " << floor(desiredExperimentalLvl) << endl;
 				cout << endl;
 				desiredExperimentalLvl = floor(desiredExperimentalLvl);
-				
+
 				Util::printDashedLine(Util::dashedLineDefaultWidth + dashedLineWidthAddition);
 				cout << endl;
-				
+
 				Util::showContinuePrompt();
 			}
 			validInput = true;
@@ -331,10 +331,10 @@ void selectGame(User& user, Game* gameList)
 				cout << endl;
 				selectedGame.displayDevNote();
 				cout << endl;
-				Util::printDashedLine(Util::dashedLineDefaultWidth);
-				cout << endl;
 			}
 
+			Util::printDashedLine(Util::dashedLineDefaultWidth);
+			cout << endl;
 
 			Util::showContinuePrompt();
 		}
@@ -443,7 +443,7 @@ void showRepeatPrompt(bool& loopControlVar)
 
 					validInput = true;
 					cout << endl;
-					cout << Util::indentText(3) << "Restarting..." << endl;
+					cout << Util::indentText(5) << "Restarting..." << endl;
 					cout << endl;
 
 					loopControlVar = true;
