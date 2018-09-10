@@ -82,4 +82,12 @@ namespace Util
 		system("clear");
 	#endif
 	}
+
+	// Show continue prompt
+	void showContinuePrompt()
+	{
+		cout << Util::indentText(1) << "Press enter to continue: ";
+		cin.ignore(1000, '\n');
+	}
+
 }

@@ -40,6 +40,9 @@ namespace Util
 
 	// Clear the console
 	void clearConsole();
+
+	// Show continue prompt
+	void showContinuePrompt();
 }
 
 

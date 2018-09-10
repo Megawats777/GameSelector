@@ -22,7 +22,6 @@ void showWelcomeScreen();
 void enterUserProperties(User& user);
 void selectGame(User& user, Game* gameList);
 void checkGameWeirdness(Game& game, User& user);
-void showContinuePrompt();
 void showRepeatPrompt(bool& loopControlVar);
 
 
@@ -92,7 +91,7 @@ int main()
 	} while (repeat == true);
 
 
-	showContinuePrompt();
+	Util::showContinuePrompt();
 
 
 	delete[] gameList;
@@ -125,7 +124,7 @@ void showWelcomeScreen()
 	Util::printDashedLine(Util::dashedLineDefaultWidth, true);
 	cout << endl;
 
-	showContinuePrompt();
+	Util::showContinuePrompt();
 	Util::clearConsole();
 }
 
@@ -245,7 +244,7 @@ void enterUserProperties(User& user)
 				Util::printDashedLine(Util::dashedLineDefaultWidth + dashedLineWidthAddition);
 				cout << endl;
 				
-				showContinuePrompt();
+				Util::showContinuePrompt();
 			}
 			validInput = true;
 			user.setExperimentalLvl(desiredExperimentalLvl);
@@ -286,7 +285,7 @@ void selectGame(User& user, Game* gameList)
 		{
 			cout << Util::indentText(3) << "No games found." << endl;
 			cout << endl;
-			showContinuePrompt();
+			Util::showContinuePrompt();
 		}
 
 		// Otherwise
@@ -337,7 +336,7 @@ void selectGame(User& user, Game* gameList)
 			}
 
 
-			showContinuePrompt();
+			Util::showContinuePrompt();
 		}
 
 		delete[] gameCandidates;
@@ -376,13 +375,6 @@ void checkGameWeirdness(Game& game, User& user)
 			cout << "This game might be a little too weird for you." << endl;
 		}
 	}
-}
-
-// Show continue prompt
-void showContinuePrompt()
-{
-	cout << Util::indentText(1) << "Press enter to continue: ";
-	cin.ignore(1000, '\n');
 }
 
 
@@ -458,7 +450,7 @@ void showRepeatPrompt(bool& loopControlVar)
 					Util::printDashedLine(Util::dashedLineDefaultWidth);
 					cout << endl;
 
-					showContinuePrompt();
+					Util::showContinuePrompt();
 					Util::clearConsole();
 				}
 
