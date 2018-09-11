@@ -131,16 +131,24 @@ void showWelcomeScreen()
 // Perform user input
 void enterUserProperties(User& user)
 {
-	int dashedLineWidthAddition = 50;
+	int dashedLineWidthAddition = 10;
 
 	float desiredIntensityAnswer = 0;
 	float desiredExperimentalLvl = 0;
 	bool validInput = false;
 
+
+	cout << Util::indentText(3) << "Note: Enter numbers between 0 and 10" << endl;
+	cout << endl;
+	cout << endl;
+
+	Util::printDashedLine(Util::dashedLineDefaultWidth + dashedLineWidthAddition);
+	cout << endl;
+
 	// Get the desired intensity
 	while (validInput == false)
 	{
-		cout << Util::indentText(3) << "From a scale of 0 to 10 what is your desired intensity: ";
+		cout << Util::indentText(3) << "Desired intensity: ";
 		cin >> desiredIntensityAnswer;
 
 
@@ -198,7 +206,7 @@ void enterUserProperties(User& user)
 	// Get the desired experimental level
 	while (validInput == false)
 	{
-		cout << Util::indentText(3) << "From a scale of 0 to 10 how experimental do you wanna get: ";
+		cout << Util::indentText(3) << "Desired weirdness: ";
 		cin >> desiredExperimentalLvl;
 
 
@@ -238,16 +246,17 @@ void enterUserProperties(User& user)
 			{
 				cout << endl;
 				cout << Util::indentText(5) << "Answer converted to: " << floor(desiredExperimentalLvl) << endl;
-				cout << endl;
 				desiredExperimentalLvl = floor(desiredExperimentalLvl);
 
-				Util::printDashedLine(Util::dashedLineDefaultWidth + dashedLineWidthAddition);
-				cout << endl;
-
-				Util::showContinuePrompt();
 			}
 			validInput = true;
 			user.setExperimentalLvl(desiredExperimentalLvl);
+			
+			cout << endl;
+			Util::printDashedLine(Util::dashedLineDefaultWidth + dashedLineWidthAddition);
+			cout << endl;
+
+			Util::showContinuePrompt();
 
 		}
 	}
