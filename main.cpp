@@ -251,7 +251,7 @@ void enterUserProperties(User& user)
 			}
 			validInput = true;
 			user.setExperimentalLvl(desiredExperimentalLvl);
-			
+
 			cout << endl;
 			Util::printDashedLine(Util::dashedLineDefaultWidth + dashedLineWidthAddition);
 			cout << endl;
@@ -329,22 +329,27 @@ void selectGame(User& user, Game* gameList)
 			checkGameWeirdness(selectedGame, user);
 			cout << endl;
 
-			displayEnjoymentMessage(selectedGame);
-			cout << endl;
+
 
 			// If the selected game has a developer's note
 			if (selectedGame.getHasDevNote() == true)
 			{
 				cout << endl;
-				Util::printDashedLine(Util::dashedLineDefaultWidth);
-				cout << endl;
 				selectedGame.displayDevNote();
 				cout << endl;
+
+				Util::printDashedLine(selectedGame.getProcessedDevNoteSize());
 			}
 
-			Util::printDashedLine(Util::dashedLineDefaultWidth);
-			cout << endl;
+			else
+			{
+				displayEnjoymentMessage(selectedGame);
+				cout << endl;
+				Util::printDashedLine(Util::dashedLineDefaultWidth);
+			}
 
+
+			cout << endl;
 			Util::showContinuePrompt();
 		}
 

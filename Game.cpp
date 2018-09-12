@@ -19,6 +19,7 @@ namespace MainApp
 		weirdness = 0;
 		hasDevNote = false;
 		devNote = "";
+		processedDevNoteSize = devNote.length();
 	}
 
 	Game::Game(char* name, int intensity, int weirdness, bool hasDevNote, string devNote)
@@ -28,6 +29,7 @@ namespace MainApp
 		this->weirdness = 0;
 		this->hasDevNote = false;
 		this->devNote = "";
+		this->processedDevNoteSize = this->devNote.length();
 
 		if (name != nullptr)
 		{
@@ -40,6 +42,7 @@ namespace MainApp
 				setWeirdness(weirdness);
 				this->hasDevNote = hasDevNote;
 				this->devNote = devNote;
+				this->processedDevNoteSize = this->devNote.length();
 			}
 			else
 			{
@@ -90,9 +93,14 @@ namespace MainApp
 	// Display the developer's note
 	void Game::displayDevNote()
 	{
+		string processedDevNote = Util::indentText(5) + "\"" + getDevNote() + "\"";
+		processedDevNoteSize = processedDevNote.length() + 5;
+
+		Util::printDashedLine(processedDevNoteSize);
+		cout << endl;
 		cout << Util::indentText(3) << "Developer's note:" << endl;
 		cout << endl;
-		cout << Util::indentText(5) << "\"" << getDevNote() << "\"" << endl;
+		cout << processedDevNote << endl;
 	}
 
 	/*--Getters and Setters--*/
@@ -211,6 +219,11 @@ namespace MainApp
 	void Game::setDevNote(string devNote)
 	{
 		this->devNote = devNote;
+	}
+
+	size_t Game::getProcessedDevNoteSize()
+	{
+		return processedDevNoteSize;
 	}
 
 

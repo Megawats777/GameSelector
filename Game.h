@@ -25,6 +25,7 @@ namespace MainApp
 		int weirdness;
 		bool hasDevNote;
 		string devNote;
+		size_t processedDevNoteSize;
 
 		// Public members
 	public:
@@ -51,6 +52,8 @@ namespace MainApp
 
 		string getDevNote();
 		void setDevNote(string devNote);
+
+		size_t getProcessedDevNoteSize();
 
 		/*--Getters and Setters Members End--*/
 
