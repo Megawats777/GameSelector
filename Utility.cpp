@@ -84,9 +84,25 @@ namespace Util
 	}
 
 	// Show continue prompt
-	void showContinuePrompt()
+	void showContinuePrompt(bool overridePromptMessage, string newPromptMessage)
 	{
-		cout << Util::indentText(1) << "Press enter to continue: ";
+		string usedPromptMessage = "";
+
+		if (overridePromptMessage == true)
+		{
+			usedPromptMessage = newPromptMessage;
+
+			if (newPromptMessage == "")
+			{
+				usedPromptMessage = "Overriden prompt message here: ";
+			}
+		}
+		else
+		{
+			usedPromptMessage = "Press enter to continue: ";
+		}
+
+		cout << Util::indentText(1) << usedPromptMessage;
 		cin.ignore(1000, '\n');
 	}
 

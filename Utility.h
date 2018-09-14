@@ -42,7 +42,7 @@ namespace Util
 	void clearConsole();
 
 	// Show continue prompt
-	void showContinuePrompt();
+	void showContinuePrompt(bool overridePromptMessage = false, string newPromptMessage = "");
 }
 
 

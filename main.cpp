@@ -91,7 +91,7 @@ int main()
 	} while (repeat == true);
 
 
-	Util::showContinuePrompt();
+	Util::showContinuePrompt(true, "Press enter to exit: ");
 
 
 	delete[] gameList;
@@ -124,7 +124,7 @@ void showWelcomeScreen()
 	Util::printDashedLine(Util::dashedLineDefaultWidth, true);
 	cout << endl;
 
-	Util::showContinuePrompt();
+	Util::showContinuePrompt(true, "Press enter to start: ");
 	Util::clearConsole();
 }
 
