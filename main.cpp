@@ -1,4 +1,12 @@
-// The main entry point of the program
+/*
+	Developer: James Daniel Semilla
+	Date: September 19, 2018
+	Github: https://github.com/Megawats777
+	Repo link: https://github.com/Megawats777/GameSelector
+	Desc: The main entry point of the program 
+*/
+
+
 
 
 #include <iostream>
@@ -127,7 +135,7 @@ int main()
 // Show welcome screen
 void showWelcomeScreen()
 {
-	const string versionText = "1.05";
+	const string versionText = "2.01";
 
 	cout << Util::indentText(1) << "Loading Game Selector Ver " << versionText << endl;
 	cout << endl;

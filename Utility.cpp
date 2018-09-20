@@ -1,4 +1,10 @@
-// The implementation file for the Utility header
+/*
+	Developer: James Daniel Semilla
+	Date: September 19, 2018
+	Github: https://github.com/Megawats777
+	Repo link: https://github.com/Megawats777/GameSelector
+	Desc: The implementation file for the utility library
+*/
 
 
 #include "Utility.h"

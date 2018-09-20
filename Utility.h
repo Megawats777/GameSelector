@@ -1,4 +1,10 @@
-// The header for a set of utility functions
+/*
+	Developer: James Daniel Semilla
+	Date: September 19, 2018
+	Github: https://github.com/Megawats777
+	Repo link: https://github.com/Megawats777/GameSelector
+	Desc: The header file for the utility library
+*/
 
 #ifndef NAMESPACE_UTILITY
 #define NAMESPACE_UTILITY

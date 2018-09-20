@@ -1,4 +1,10 @@
-// The header for the Game class
+/*
+	Developer: James Daniel Semilla
+	Date: September 19, 2018
+	Github: https://github.com/Megawats777
+	Repo link: https://github.com/Megawats777/GameSelector
+	Desc: The header file for the Game class and helper functions
+*/
 
 #ifndef NAMESPACE_GAME_CLASS
 #define NAMESPACE_GAME_CLASS

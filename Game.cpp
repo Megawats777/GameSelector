@@ -1,4 +1,10 @@
-// The implementation file for the game class
+/*
+	Developer: James Daniel Semilla
+	Date: September 19, 2018
+	Github: https://github.com/Megawats777
+	Repo link: https://github.com/Megawats777/GameSelector
+	Desc: The implementation file for the Game class and helper functions
+*/
 
 #define _CRT_SECURE_NO_WARNINGS
 

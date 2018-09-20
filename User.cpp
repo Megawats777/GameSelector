@@ -1,4 +1,10 @@
-// The implementation file for the User class
+/*
+	Developer: James Daniel Semilla
+	Date: September 19, 2018
+	Github: https://github.com/Megawats777
+	Repo link: https://github.com/Megawats777/GameSelector
+	Desc: The implementation file for the User class and helper functions
+*/
 
 #include "User.h"
 
