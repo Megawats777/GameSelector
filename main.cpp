@@ -135,7 +135,7 @@ int main()
 // Show welcome screen
 void showWelcomeScreen()
 {
-	const string versionText = "2.01";
+	const string versionText = "2.77";
 
 	cout << Util::indentText(1) << "Loading Game Selector Ver " << versionText << endl;
 	cout << endl;
