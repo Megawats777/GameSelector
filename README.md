@@ -3,6 +3,7 @@ A application that helps you pick a game to play based on my personal tastes
 
 ## Notes
 * Currently this program assumes the user is on windows.
+
     * As of which some functions especially clearConsole() may just flat out not work on non windows platforms
 
 ## Modules
