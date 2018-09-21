@@ -64,7 +64,7 @@ int main()
 
 
 	setGameProperties(gameList[19], "The Phantom Pain", 6, 9, true, "D-Dog is the best buddy.");
-	setGameProperties(gameList[20], "GRID", 6, 2);
+	setGameProperties(gameList[20], "GRID", 6, 2, true, "Still has some of the best car damage physics I've ever seen.");
 	setGameProperties(gameList[21], "Splinter Cell Conviction", 6, 3, true, "The best Jason Bourne game in existence.");
 
 
@@ -87,7 +87,7 @@ int main()
 
 
 	setGameProperties(gameList[32], "Tonka Construction 2", 1, 4, true, "The best game I ever got from a cereal box.");
-	setGameProperties(gameList[33], "Bob the Builder: Can we fix it?", 1, 2);
+	setGameProperties(gameList[33], "Bob the Builder: Can we fix it?", 1, 2, true, "I think I still have the PS1 disc still lying around.");
 
 
 

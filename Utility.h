@@ -33,9 +33,13 @@ namespace Util
 
 
 	// Perform a delay
+	// Set the length of the delay with the seconds parameter
+	// Ex: delay(2.5f) - this sets the delay to be 2.5 seconds
 	void delay(float seconds);
 
 	// Indent text
+	// Use with cout
+	// Ex: (cout << indentText(3) << "Hello")
 	string indentText(int size);
 
 	// Check if number is whole
@@ -45,6 +49,7 @@ namespace Util
 	void printDashedLine(int size, bool printNewLine = true);
 
 	// Clear the console
+	// WARNING: this function may not work with non windows platforms
 	void clearConsole();
 
 	// Show continue prompt

@@ -67,9 +67,17 @@ namespace MainApp
 
 
 	// Helper functions
+
+	// Set the properties for a given game object
 	void setGameProperties(Game& game, char* name, int intensity, int weirdness, bool hasDevNote = false, string devNote = "");
+	
+	// Check if the given game object matches the user's desired intensity
 	bool doesGameMatchDesiredIntensity(Game& game, User& user);
+
+	// Copy a game's properties from one game object to another
 	void copyGameProperties(Game& destination, Game& source);
+
+	// Display the enjoyment message of a game
 	void displayEnjoymentMessage(Game& game);
 }
 
